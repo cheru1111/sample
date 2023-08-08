@@ -1,0 +1,158 @@
+{% extends 'base1.html' %}
+{% block content %}
+{% load static %}
+<style>
+     .footer {
+            width: 100%;
+            display: block;
+            background-color: black;
+            color: beige;
+
+
+        }
+
+        footer.container-fluid {
+            display: flex;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        ul li a {
+            font-size: 0.9rem;
+        }
+       
+</style>
+
+<div class="container mt-5">
+    <h3 class="alert alert-danger text-center mb-5">
+        shopping details
+    </h3>
+    <form method="post" action="/cart/{{data.id}}" enctype="multipart/form-data">
+
+        
+        <div class="table-responsive">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-light table-hover text-center ">
+                        <thead>
+                            <tr>
+                                <th>PRODUCT IMAGE</th>
+                                <th>PRODUCT NAME</th>
+                                <th>PRODUCT DESCRIPTION</th>
+                                <th>CATEGORY QUANTITY</th>
+                                <th>PRODUCT PRICE</th>
+
+                                <th>REMOVE</th>
+                                <th>BUY NOW</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in data %}
+                            <tr>
+                                <td>
+                                    {% if d.Product.image %}
+                                    <img src="{{ d.Product.image.url }}" width="100px">
+                                    {% else %}
+                                    <img src="{% static 'images/def5.png' %}" alt="" width="100px">
+                                    {% endif %}
+
+                                </td>
+                                <td>{{d.Product.name}}</td>
+                                <td>{{d.Product.description}}</td>
+                                <td>{{ d.Product.quantity}}</td>
+                                <td>{{d.Product.price}}</td>
+
+                                <td>
+                                    <a href="{% url 'remove_cart' d.id %}">Remove</a><br>
+                                </td>
+
+                                <td>
+                                    <a href="{% url 'buynow' d.Product.id %}">Buynow</a>
+                                </td>
+
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</div><br>
+<footer class="footer">
+
+    <div class="row col-12 container-fluid">
+        <div class="col-4 container-fluid">
+            <h6 text-fluid>ALTOS Technologies</h6><br>
+            <p class="text-fluid">1st floor-Thapasya Building Kakkanad,Cochin.
+                Phone:919633539879
+                Email:Info@Altostechnologies.in</p>
+        </div>
+        <div class="col-4 container-fluid">
+            <h6 text-fluid>Quick links</h6><br>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Gallery</a></li>
+                
+            </ul>
+        </div>
+        <div class="col-4 container-fluid">
+            <h6 text-fluid>Quick links</h6><br>
+            <ul>
+                <li><a href="">Mens</a></li>
+                <li><a href="">Womens</a></li>
+                <li><a href="">accessories</a></li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+</footer>
+
+{% endblock %}
+<!--<form method="post" action="" enctype="multipart/form-data">
+
+    {% for d in data %}
+
+    <div class="container" style="margin-bottom: 40px; margin-top: 40px;">
+        <div class="pro">
+            <div class="img">
+                {% if d.Product.image %}
+                <img src="{{ d.Product.image.url }}" class="img-thumbnail" alt=""
+                    style="width: 100%; background-size: cover;">
+                {% else %}
+                <img src="{% static 'img/person-circle.svg' %}">
+                {% endif %}
+            </div>
+            <div class="content">
+                <h1 style="color: white;text-shadow: 2px 2px 4px #000000; margin-bottom: 40px; font-size: 30px;">
+                    {{d.Product.name}}</h1>
+                <center>
+                    <h3
+                        style="color: rgb(239, 12, 12);text-shadow: 2px 2px 4px #000000; margin-bottom: 40px; background-color: rgb(238, 238, 122,0.7); border-radius: 10px;">
+                        {{d.Product.description}}</h3>
+                    <h3
+                        style="color: rgb(9, 244, 103);text-shadow: 2px 2px 4px #000000; margin-bottom: 40px; background-color: rgba(7, 210, 7, 0.5);border-radius: 10px;">
+                        Rs:{{d.Product.price}}</h3>
+                </center>
+                <center>
+                    <a href="" class="btn"
+                        style="background-image: linear-gradient(to right,#e47979,#f24444,#f20505); color: white; font-weight: bold; margin-top: 30px; margin-left: 10PX;">REMOVE</a>
+                    <a href="" class="btn"
+                        style="background-image: linear-gradient(to right,#111f8b,#578fe8,#0fcdf8); color: white; font-weight: bold; margin-top: 30px;">SHOP
+                        NOW</a>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</form>-->

@@ -1,0 +1,110 @@
+{% extends 'base1.html' %}
+{% block content %}
+{% load static %}
+<style>
+    fieldset{
+        background-color: navy;
+        padding-top: 5%;
+        padding-left: 10%;
+        padding-bottom: 5%;
+        padding-right: 10%;
+    }
+</style>
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1" class="active"></li>
+        <li data-target="#demo" data-slide-to="2" class="active"></li>
+
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/m1.jpg' %}" alt="Los Angeles" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/m2.jpg' %}" alt="Chicago" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/m3.jpg' %}" alt="Chicago" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div><br>
+
+<h1 class="text-secondary text-center">TOP CATEGORIES</h1>
+<div class="row">
+    <div class="col">
+        <a href="{% url 'shirt' %}"><img class="img-thumbnail rounded-pill" src="{% static 'images/m4.jpg' %}" alt=""></a>
+        <h4 class="text-info text-center">SHIRTS</h4>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m5.jpg' %}" alt="">
+        <h4 class="text-info text-center">T-SHIRTS</h4>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m6.jpg' %}" alt="">
+        <h4 class="text-info text-center">SUITS</h4>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m7.jpg' %}" alt="">
+        <h4 class="text-info text-center">BLAZERS</h4>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m8.jpg' %}" alt="">
+        <h4 class="text-info text-center">TROUSERS</h4>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m9.jpg' %}" alt="">
+        <h4 class="text-info text-center">WAIST COAT</h4>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m10.jpg' %}" alt="">
+        <h4 class="text-info text-center">ACCESSORIES</h4>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m11.jpg' %}" alt="">
+        <h4 class="text-info text-center">JEANS</h4>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m12.jpg' %}" alt="">
+        <h4 class="text-info text-center">SHORTS</h4>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m13.jpg' %}" alt="">
+        <h4 class="text-info text-center">TRACKPANTS & JOGGERS</h4>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail rounded-pill" src="{% static 'images/m14.jpg' %}" alt="">
+        <h4 class="text-info text-center">WINTER WEAR</h4>
+    </div>
+</div>
+<fieldset>
+    <h1 class="text-warning text-center">Trending This Season</h1><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img class="img-thumbnail" src="{% static 'images/m15.png' %}" alt="" >
+                <h4 class="text-light text-center">COASTAL CHARM</h4>
+            </div>
+            <div class="col">
+                <img class="img-thumbnail" src="{% static 'images/m16.png' %}" alt="">
+                <h4 class="text-light text-center">ARTISANAL PRINTS</h4>
+            </div>
+
+        </div>
+    </div>
+</fieldset>
+{% endblock %}

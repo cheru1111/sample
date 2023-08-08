@@ -1,0 +1,138 @@
+{% extends 'base1.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .footer {
+               width: 100%;
+               display: block;
+               background-color: black;
+               color: beige;
+   
+   
+           }
+   
+           footer.container-fluid {
+               display: flex;
+           }
+   
+           p {
+               font-size: 1rem;
+           }
+   
+           ul li a {
+               font-size: 0.9rem;
+           }
+          
+   
+     </style>
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/1.webp' %}" alt="Los Angeles" class="img-fluid">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/4.webp' %}" alt="Chicago" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div><br>
+<div class="row">
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/2.webp' %}" alt="">
+    </div>
+</div><br>
+<div class="row">
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/3.webp' %}" alt="">
+    </div>
+</div><br>
+
+<h1>Trending Categories</h1>
+<div class="row">
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/5.webp' %}" alt="">
+    </div>
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/6.webp' %}" alt="">
+    </div>
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/7.webp' %}" alt="">
+    </div>
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/8.webp' %}" alt="">
+    </div>
+</div><br>
+<div class="row">
+    <div class="col">
+        <a href="{% url 'men' %}"><img class="img-thumbnail" src="{% static 'images/9.jpg' %}" alt=""></a>
+    </div>
+</div><br>
+
+<h3>Trending Categories</h3>
+<div class="row">
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/10.webp' %}" alt="">
+    </div>
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/11.webp' %}" alt="">
+    </div>
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/12.webp' %}" alt="">
+    </div>
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/13.webp' %}" alt="">
+    </div>
+    <div class="col">
+        <img class="img-thumbnail" src="{% static 'images/14.webp' %}" alt="">
+    </div>
+
+</div>
+<footer class="footer">
+
+    <div class="row col-12 container-fluid">
+        <div class="col-4 container-fluid">
+            <h6 text-fluid>ALTOS Technologies</h6><br>
+            <p class="text-fluid">1st floor-Thapasya Building Kakkanad,Cochin.
+                Phone:919633539879
+                Email:Info@Altostechnologies.in</p>
+        </div>
+        <div class="col-4 container-fluid">
+            <h6 text-fluid>Quick links</h6><br>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Gallery</a></li>
+                
+            </ul>
+        </div>
+        <div class="col-4 container-fluid">
+            <h6 text-fluid>Quick links</h6><br>
+            <ul>
+                <li><a href="">Mens</a></li>
+                <li><a href="">Womens</a></li>
+                <li><a href="">accessories</a></li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+</footer>
+
+
+{% endblock %}

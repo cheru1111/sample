@@ -1,0 +1,89 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+<style>
+    body {
+      background-image: url("{% static 'images/ad1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: 100vw 180vh;
+    }
+   
+
+</style>
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mt-5">
+        <div class="card p-3">
+            <form action="{% url 'AddProduct' %}" method="post" class="post-form"  enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <h3 class="text-primary">Add Product Details</h3>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="text" name="name" class="form-control" placeholder="Enter Product Name">
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="text" name="description" class="form-control " placeholder="Enter ProductDescription">
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="number" name="quantity" class="form-control"
+                            placeholder="Enter Product Quantity">
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="number" name="price" class="form-control" placeholder="Enter Product Price">
+                    </div>
+
+                </div><br>
+
+            
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <select class="form-control" name="select" id="qwerty" >
+                            {% for i in categories %}
+
+                            <option value="{{ i.id }}">{{ i.Category_Name }}</option>
+
+                            {% endfor %}
+                        </select>
+
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="file" name="file" accept="image/*" class="form-control" >
+
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 mt-3">
+                        <button type="submit" class="btn btn-outline-primary rounded-pill w-100">submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,230 @@
+{% extends 'base1.html' %}
+{% block content %}
+{% load static %}
+<style>
+    /*body {
+      background-image: url("{% static 'images/img.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: 100vw 180vh;
+    }*/
+
+    .footer {
+        width: 100%;
+        display: block;
+        background-color: black;
+        color: beige;
+
+
+    }
+
+    footer.container-fluid {
+        display: flex;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    ul li a {
+        font-size: 0.9rem;
+    }
+
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #f7f7f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 90px;
+    }
+
+    .content-section {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .content-section .card {
+        flex: 2;
+        margin: 20px 20px;
+        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+
+<div class="container">
+    <form method="post" class="post-form" action="/showproductpage/{{data.id}}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+        <div class="content-section">
+            <div class="card">
+                {% if data.image %}
+                <img src="{{ data.image.url }}" class="img-thumbnail" alt="">
+                {% else %}
+                <img src="{% static 'img/person-circle.svg' %}">
+                {% endif %}
+
+                <h3 class="text-secondary text-center">{{data.name}}</h3>
+                <center>
+                    <h3 class="text-secondary text-center">
+
+                        {{data.description}}</h3>
+                    <h3 class="text-danger text-center">
+
+                        Rs:{{data.price}}</h3>
+                </center>
+                <CENter><a href="{% url 'addcart' data.id %}" class="btn btn-warning">ADD
+                        TO CART</a>
+
+                    <a href="{% url 'buynow' data.id %}" class="btn btn-info"> BUY NOW</a>
+                </CENter>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--<div class="row">
+    <div class="col-md-4 mt-5"></div>
+    <div class="col-md-4 mt-5">
+        <div class="card p-3">
+            <form method="post" class="post-form" action="/showproductpage/{{data.id}}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-md-12">
+                        {% if data.image %}
+                        <img src="{{ data.image.url }}" class="img-thumbnail" alt="">
+                        {% else %}
+                        <img src="{% static 'img/person-circle.svg' %}">
+                        {% endif %}
+
+                        <h3 class="text-secondary text-center">{{data.name}}</h3>
+                        <center>
+                            <h3 class="text-secondary text-center">
+
+                                {{data.description}}</h3>
+                            <h3 class="text-danger text-center">
+
+                                Rs:{{data.price}}</h3>
+                        </center>
+                        <CENter><a href="{% url 'addcart' data.id %}" class="btn btn-warning">ADD
+                                TO CART</a>
+
+                            <a href="{% url 'buynow' data.id %}" class="btn btn-info"> BUY NOW</a>
+                        </CENter>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div><br>-->
+<footer class="footer">
+
+    <div class="row col-12 container-fluid">
+        <div class="col-4 container-fluid">
+            <h6 text-fluid>ALTOS Technologies</h6><br>
+            <p class="text-fluid">1st floor-Thapasya Building Kakkanad,Cochin.
+                Phone:919633539879
+                Email:Info@Altostechnologies.in</p>
+        </div>
+        <div class="col-4 container-fluid">
+            <h6 text-fluid>Quick links</h6><br>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Gallery</a></li>
+
+            </ul>
+        </div>
+        <div class="col-4 container-fluid">
+            <h6 text-fluid>Quick links</h6><br>
+            <ul>
+                <li><a href="">Mens</a></li>
+                <li><a href="">Womens</a></li>
+                <li><a href="">accessories</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<form method="post" action="/buynow/{{data.id}}" enctype="multipart/form-data">
+
+
+
+    <div class="container" style="margin-bottom: 40px; margin-top: 40px;">
+        <div class="pro">
+            <div class="img">
+                {% if data.image%}
+                <img src="{{ data.image.url }}" class="img-thumbnail" alt=""
+                    style="width: 100%; background-size: cover;">
+                {% else %}
+                <img src="{% static 'img/person-circle.svg' %}">
+                {% endif %}
+            </div>
+            <div class="content">
+                <center>
+                    <div class="text">
+
+                        <h1
+                            style="color: white;text-shadow: 2px 2px 4px #000000; margin-bottom: 40px; font-size: 30px;">
+                            <b>{{data.name}} </b></h1>
+
+
+                        <h3
+                            style="color: white;text-shadow: 2px 2px 4px #000000; margin-bottom: 40px; font-size: 30px;">
+                            <b style="color: #f20505;">{{data.description}}</b></h3>
+
+                        <h3
+                            style="color: white;text-shadow: 2px 2px 4px #000000; margin-bottom: 40px; font-size: 30px;">
+                            Rs:<b style="color: rgb(16, 231, 16);">{{data.price}}</b></h3>
+
+                    </div>
+                </center>
+                <CENter><a href="{% url 'addcart' data.id %}" class="btn"
+                        style="background-image: linear-gradient(to right,#111f8b,#578fe8,#0fcdf8); color: white; font-weight: bold; margin-top: 30px;">ADD
+                        TO CART</a>
+
+                    <a href="{% url 'buynow' data.id %}" class="btn"
+                        style="background-image: linear-gradient(to right,#e47979,#f24444,#f20505); color: white; font-weight: bold; margin-top: 30px; margin-left: 10PX;">BUY
+                        NOW</a>
+                </CENter>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</form>-->
+{% endblock %}

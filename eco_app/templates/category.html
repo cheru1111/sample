@@ -1,0 +1,47 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    body {
+      background-image: url("{% static 'images/ad1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: 100vw 180vh;
+    }
+   
+
+</style>
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mt-5">
+        <div class="card p-3">
+            <form action="{% url 'addcategory' %}" method="post" class="post-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h3 class="text-primary">Category Details</h3>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="text" name="categoryname" class="form-control"
+                            placeholder="Enter Catergory Name">
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 mt-3">
+                        <button type="submit" class="btn btn-outline-primary rounded-pill w-100">submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

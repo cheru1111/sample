@@ -1,0 +1,28 @@
+{% extends 'base1.html' %}
+{% block content %}
+{% load static %}
+<style>
+     body {
+            background-image: url("{% static 'images/img.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: 100vw 130vh;
+        }
+</style>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 mt-5">
+        <div class="card p-3 bg-warning">
+            <form action="" method="post" class="post-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <h3 class="text-primary">Order Confirmed</h3>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

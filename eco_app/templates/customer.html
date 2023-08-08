@@ -1,0 +1,36 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    body {
+      background-image: url("{% static 'images/ad1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: 100vw 180vh;
+    }
+   
+
+</style>
+<form action="{% url 'customer_reg' %}" method="post">
+    {% csrf_token%}
+    <div class="form-group">
+        <h1>ADD CUSTOMER</h1>
+        <input type="text" name="tfname" class="form-control" placeholder="enter studentname"><br>
+        <input type="text" name="tlname" class="form-control" placeholder="enter student address"><br>
+        <input type="number" name="temail" class="form-control" placeholder="enter student age"><br>
+        <input type="text" name="tcategory" class="form-control" placeholder="enter student email"><br>
+        
+        <select name="select" id=""  class="form-control">
+            {% for i in category %}
+
+                <option value="{{ i.id }}">{{ i.Category_Name}}</option>
+
+            {% endfor %}
+        </select><br>
+        <input type="file" name="file" accept="image/*" class="form-control">
+        <input type="submit" id="s" value="REGISTER" class="btn-dark"
+            style="margin-top: 10px; margin-left: 35px; width: 70%; padding: 10px; border-radius: 10px;"><br>
+
+    </div>
+</form>
+{% endblock %}

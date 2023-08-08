@@ -1,0 +1,76 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    body {
+      background-image: url("{% static 'images/ad1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: 100vw 180vh;
+    }
+   
+
+</style>
+
+<div class="container mt-5">
+    <h3 class="alert alert-dark text-center mb-5">
+        CUSTOMER DETAILS
+    </h3>
+    <div class="table-responsive">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <table class="table table-light table-hover text-center ">
+                    <thead>
+                        <tr>
+                            <th>
+                                Customer ID
+                            </th>
+                            <th>
+                                Customer Fname
+                            </th>
+                            <th>
+                                Customer Lname
+                            </th>
+                            <th>
+                                Customer Email
+                            </th>
+                        
+                            <th>
+                                Edit
+                            </th>
+                            <th>
+                                Delete
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in customer %}
+
+                        <tr>
+                            <td>{{ p.id }}</td>
+                            <td>{{ p.user.first_name }}</td>
+                            <td>{{ p.user.last_name}}</td>
+                            <td>{{ p.user.email }}</td>
+                        
+                           
+
+                            <td>
+                                <a href="{% url 'editcustomerpage' p.id %}">Edit</a><br>
+                            </td>
+
+                            <td>
+                                <a href="{% url 'delete_customer' p.id %}">Delete</a>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

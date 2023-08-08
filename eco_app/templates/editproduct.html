@@ -1,0 +1,59 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    body {
+      background-image: url("{% static 'images/ad1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: 100vw 180vh;
+    }
+   
+
+</style>
+
+<div class="container text-center w-50">
+    <form action="/edit_products/{{ product.id}}" method="post" enctype="multipart/form-data"><br><br>
+        {% csrf_token%}
+        <div class="form-group">
+            <h1>EDIT product</h1>
+
+            <input type="text" name="prtname" class="form-control" placeholder="enter name"
+                value="{{product.name}}"><br>
+            <input type="text" name="prtdispription" class="form-control" placeholder="enter description"
+                value="{{product.description}}"><br>
+            <input type="text" name="prtprice" class="form-control" placeholder="enter price"
+                value="{{product.price}}"><br>
+
+
+            <select name="select" id="" class="form-control" >
+                
+
+
+                <option value="{{ product.category.id}}">{{ product.category.Category_Name}}</option>
+
+                
+            </select><br>
+
+
+
+
+
+
+            {% if product.image %}
+            <img src="{{ product.image.url}}" alt="" width="70px"><br>
+            {% endif %}
+            <input type="file" name="file" class="form-control mt-3" accept="image/*"
+                value="{{ product.image }}"><br><br>
+
+            <button style="background-color: rgb(76, 139, 34);padding-top: 5px;padding-bottom: 5px;width: 150px;"
+                type="submit">Update</button>
+
+            <button style="background-color: rgb(34, 139, 125);padding-top: 5px;padding-bottom: 5px;width: 150px;"
+                type='button' value="previous page" onclick="javascript:history.go(-1);">Previous</button>
+
+
+    </form>
+</div>
+
+{% endblock %}

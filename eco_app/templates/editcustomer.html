@@ -1,0 +1,40 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    body {
+      background-image: url("{% static 'images/ad1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: 100vw 180vh;
+    }
+   
+
+</style>
+
+<div class="container text-center w-50">
+    <form action="/edit_customerdetails/{{ customer.id}}" method="post" enctype="multipart/form-data"><br><br>
+        {% csrf_token%}
+        <div class="form-group">
+            <h1>EDIT product</h1>
+
+            <input type="text" name="fname" class="form-control" placeholder="enter firstname"
+                value="{{customer.user.first_name}}"><br>
+            <input type="text" name="lname" class="form-control" placeholder="enter lastname"
+                value="{{customer.user.last_name}}"><br>
+            <input type="text" name="email" class="form-control" placeholder="enter email"
+                value="{{customer.user.email}}"><br>
+
+            <button style="background-color: rgb(76, 139, 34);padding-top: 5px;padding-bottom: 5px;width: 150px;"
+                type="submit">Update</button>
+
+            <button style="background-color: rgb(34, 139, 125);padding-top: 5px;padding-bottom: 5px;width: 150px;"
+                type='button' value="previous page" onclick="javascript:history.go(-1);">Previous</button>
+
+
+
+    </form>
+</div>
+
+
+{% endblock %}
